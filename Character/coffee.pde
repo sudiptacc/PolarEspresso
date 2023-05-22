@@ -16,4 +16,7 @@ public void die(){
 
 public void drawCoffee(){
 }
+
+ public void move(){
+ }
 } 
