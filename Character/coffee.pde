@@ -31,11 +31,15 @@ public void drawCoffee(){
 }
 
  public void move(){
+   
    if(keyPressed){
-       if(keyCode==RIGHT) setPos(getPos().x+15/**will change to constant*/, getPos().y);
-       if(keyCode==LEFT)  setPos(getPos().x-15/**will change to constant*/, getPos().y);
-       if(keyCode==UP)    setPos(getPos().x/**will change to constant*/, getPos().y-15);
-       if(keyCode==DOWN)  setPos(getPos().x/**will change to constant*/, getPos().y+15);
+     float deltaX = 0;/**will change to constant*/
+     float deltaY = 0;
+       if(keyCode==RIGHT) deltaX =  48;
+       if(keyCode==LEFT)  deltaX = -48;
+       if(keyCode==UP)    deltaY = -48;
+       if(keyCode==DOWN)  deltaY =  48;
+       setPos(constrain(getPos().x+deltaX, 0, width-20), constrain(getPos().y+deltaY, 0, height-40));//will change to constants
        println(getPos().x);
        println(getPos().y);
    }
