@@ -7,4 +7,5 @@ interface LevelValues {
 
 interface GameInfoPanelValues {
   public final int PANEL_HEIGHT = 100;
+  public final int TEXT_SIZE = 48;
 }

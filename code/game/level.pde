@@ -1,6 +1,9 @@
 public int score = 0;
 public int sweetsEaten = 0;
 
+public int timeLeft = 120 * 1000;
+public int timePassed = 0;
+
 //private Map[] tiers;
 
 void settings() {
@@ -12,13 +15,15 @@ void setup() {
   background(255, 255, 255);
 }
 
-void draw() {
-  levelDraw();
-  infoPanelDraw();
+void reset() {
+  
 }
 
-void keyPressed() {
-  
+void draw() {
+  background(255, 255, 255);
+  levelDraw();
+  infoPanelDraw();
+  timeUpdate(millis());
 }
 
 void levelDraw() {
@@ -36,10 +41,32 @@ void levelDraw() {
 /* Complete info panel draw */
 void infoPanelDraw() {
   int yPanel = LevelValues.GRID_SIZE * LevelValues.BLOCK_HEIGHT + 2 * LevelValues.PADDING + LevelValues.GRID_SIZE;
-  int xPanel = LevelValues.PADDING;
+  int xPanel = LevelValues.GRID_SIZE * LevelValues.BLOCK_WIDTH + LevelValues.PADDING;
   
   fill(0, 0, 0);
-  textSize(48);
-  rect(
-  text(score, xPanel, yPanel);
+  textAlign(RIGHT);
+  textSize(GameInfoPanelValues.TEXT_SIZE);
+  text(formatTime(timeLeft), xPanel, yPanel);
+}
+
+String formatTime(int timeMs) {
+  String time = "";
+  
+  time += timeMs / (60 * 1000) + ":";
+  time += timeMs / 1000 % 60;
+  
+  return time;
+}
+
+void timeUpdate(int timeSince) {
+  /* deltaTime is the amount of time that has passed from the last draw to the current draw, in ms */
+  int deltaTime = timeSince - timePassed;
+  timePassed += deltaTime;
+  timeLeft -= deltaTime;
+  
+  if (timeLeft <= 0) {
+    reset();
+    timeLeft = 120 * 1000;
+  }
+  
 }
