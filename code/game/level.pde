@@ -40,13 +40,30 @@ void levelDraw() {
 
 /* Complete info panel draw */
 void infoPanelDraw() {
-  int yPanel = LevelValues.GRID_SIZE * LevelValues.BLOCK_HEIGHT + 2 * LevelValues.PADDING + LevelValues.GRID_SIZE;
-  int xPanel = LevelValues.GRID_SIZE * LevelValues.BLOCK_WIDTH + LevelValues.PADDING;
+  timePanelDraw();
+  foodPanelDraw();
+}
+
+void timePanelDraw() {
+  int timeX = LevelValues.GRID_SIZE * LevelValues.BLOCK_WIDTH + LevelValues.PADDING;
+  int timeY = LevelValues.GRID_SIZE * LevelValues.BLOCK_HEIGHT + 2 * LevelValues.PADDING + LevelValues.GRID_SIZE;
   
   fill(0, 0, 0);
   textAlign(RIGHT);
   textSize(GameInfoPanelValues.TEXT_SIZE);
-  text(formatTime(timeLeft), xPanel, yPanel);
+  text(formatTime(timeLeft), timeX, timeY);
+}
+
+void foodPanelDraw() {
+  int foodX = LevelValues.PADDING;
+  int foodY = LevelValues.GRID_SIZE * LevelValues.BLOCK_HEIGHT + LevelValues.PADDING + GameInfoPanelValues.FOOD_PANEL_OFFSET;
+  
+  for (int cell = 0; cell < 5; cell++) {
+    rect(foodX + cell * (LevelValues.PADDING + GameInfoPanelValues.FOOD_PANEL_SIZE),
+         foodY,
+         GameInfoPanelValues.FOOD_PANEL_SIZE,
+         GameInfoPanelValues.FOOD_PANEL_SIZE);
+  }
 }
 
 String formatTime(int timeMs) {

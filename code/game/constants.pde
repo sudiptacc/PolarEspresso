@@ -8,4 +8,6 @@ interface LevelValues {
 interface GameInfoPanelValues {
   public final int PANEL_HEIGHT = 100;
   public final int TEXT_SIZE = 48;
+  public final int FOOD_PANEL_OFFSET = 24;
+  public final int FOOD_PANEL_SIZE = 48;
 }
