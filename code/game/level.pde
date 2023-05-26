@@ -5,6 +5,7 @@ public int timeLeft = 120 * 1000;
 public int timePassed = 0;
 
 //private Map[] tiers;
+//private int currentTier;
 
 void settings() {
   size(LevelValues.GRID_SIZE * LevelValues.BLOCK_WIDTH + 2 * LevelValues.PADDING,
@@ -21,14 +22,21 @@ void reset() {
 
 void draw() {
   background(255, 255, 255);
-  levelDraw();
+  levelSetup();
   infoPanelDraw();
   timeUpdate(millis());
 }
 
 void levelDraw() {
+  background(255, 255, 255);
+  levelSetup();
+  infoPanelDraw();
+  timeUpdate(millis());
+}
+
+void levelSetup() {
   fill(255, 255, 255);
- for (int row = 0; row < LevelValues.BLOCK_WIDTH; row++) {
+  for (int row = 0; row < LevelValues.BLOCK_WIDTH; row++) {
     for (int col = 0; col < LevelValues.BLOCK_HEIGHT; col++) {
       rect(row * LevelValues.GRID_SIZE + LevelValues.PADDING,
            col * LevelValues.GRID_SIZE + LevelValues.PADDING,
@@ -52,6 +60,7 @@ void timePanelDraw() {
   textAlign(RIGHT);
   textSize(GameInfoPanelValues.TEXT_SIZE);
   text(formatTime(timeLeft), timeX, timeY);
+  fill(255, 255, 255);
 }
 
 void foodPanelDraw() {
