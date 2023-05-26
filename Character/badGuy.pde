@@ -1,4 +1,5 @@
 class BadGuy extends Character{
+    int deltaX = 10;
     public BadGuy(){
         super();
     }
@@ -7,7 +8,9 @@ class BadGuy extends Character{
         super(x,y);
     }
 
-    public void attack(){}
+    public void attack(){
+    
+    }
     
     public void drawBadGuy(){
     fill(255,0,0);
@@ -15,13 +18,15 @@ class BadGuy extends Character{
     }
     
     public void move(){
-      deltaX = LevelValues.GRID_SIZE;
-      if(getPos().x==width) deltaX = -LevelValues.GRID_SIZE;
-      if(getPos().x==0) deltaX == LevelValues.GRID_SIZE;
-      setPos(getPos().x+deltaX, getPos().y);
+      //int deltaX=10;//LevelValues.GRID_SIZE;
+      if(getPos().x == width-20) deltaX = -10;
+      if(getPos().x == 0) deltaX = 10;
+      float finalX = constrain(getPos().x+deltaX,0,width-20);
+      setPos(finalX, getPos().y);
+      println(getPos().x);
+      println(deltaX);
 
       }
       
       
     }
-}
