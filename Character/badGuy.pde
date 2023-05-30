@@ -8,8 +8,8 @@ class BadGuy extends Character{
         super(x,y);
     }
 
-    public void attack(){
-    
+    public void attack(Coffee goodguy){
+    if(goodGuy.getPos().x <= getPos().x <= getPos().x==goodGuy.getPos()+20))
     }
     
     public void drawBadGuy(){
