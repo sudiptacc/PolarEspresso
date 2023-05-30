@@ -4,8 +4,8 @@ public int sweetsEaten = 0;
 public int timeLeft = 120 * 1000;
 public int timePassed = 0;
 
-//private Map[] tiers;
-//private int currentTier;
+private Map[] tiers;
+private int currentTier;
 
 void settings() {
   size(LevelValues.GRID_SIZE * LevelValues.BLOCK_WIDTH + 2 * LevelValues.PADDING,
