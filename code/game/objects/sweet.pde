@@ -1,21 +1,15 @@
 class Sweet {
  
-  private int x;
-  private int y;
+  private PVector pos;
   private String type;
   
-  public Sweet(int x, int y, String type) {
-    this.x = x;
-    this.y = y;
+  public Sweet(PVector pos, String type) {
+    this.pos = pos;
     this.type = type;
   }
   
-  public int getX() {
-    return x;
-  }
-  
-  public int getY() {
-    return y;
+  public PVector getPos() {
+    return pos;
   }
   
   public String getType() {
