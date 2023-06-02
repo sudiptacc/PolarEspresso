@@ -15,6 +15,7 @@ void draw(){
     badguy.drawBadGuy();
 
     badguy.move();
+    badguy.attack(coffee);
     
     
 }
