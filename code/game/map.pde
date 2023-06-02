@@ -1,10 +1,10 @@
 public class Map {
 
-  private Obstacle[] obstacleLayout;
+  private Obstacle[][] obstacleLayout;
   private Sweet[] sweetLayout;
   private PVector startPos;
   
-  public Map(Obstacle[] obstacleLayout, Sweet[] sweetLayout, PVector startPos) {
+  public Map(Obstacle[][] obstacleLayout, Sweet[] sweetLayout, PVector startPos) {
     this.startPos = startPos;
   }
   
@@ -12,8 +12,8 @@ public class Map {
     return sweetLayout;
   }
   
-  void generateObstacles() {
-    
+  void getObstacles() {
+    return obstacleLayout;
   }
   
   void generateSweets() {
@@ -23,5 +23,6 @@ public class Map {
   private void checkCharacter() {
     
   }
+
   
 }

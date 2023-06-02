@@ -10,4 +10,6 @@ abstract class Obstacle {
     return pos;
   }
   
+  abstract void drawObject() {}
+  
 }
