@@ -30,6 +30,7 @@ class Coffee extends Character{
     public void drawCoffee(){
         noStroke();
         fill(205, 118, 71);
+        if(status == true){        
         rect(getPos().x, getPos().y, 20, 40);
         fill(0,0,0);
         if(dir==0)
@@ -37,9 +38,12 @@ class Coffee extends Character{
         if(dir==1)
         circle(getPos().x+5, getPos().y+10, 5);
         if(dir==3)
-        circle(getPos().x+10, getPos().y+10, 5);
-        
-  
+        circle(getPos().x+10, getPos().y+10, 5);}
+ 
+    
+    else{
+    circle(getPos().x, getPos().y, 20);
+    }
     }
 
     public void move(){

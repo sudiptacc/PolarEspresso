@@ -8,8 +8,15 @@ class BadGuy extends Character{
         super(x,y);
     }
 
-    public void attack(Coffee goodguy){
-    if(goodGuy.getPos().x <= getPos().x <= getPos().x==goodGuy.getPos()+20))
+    public void attack(Coffee goodGuy){
+     float x = getPos().x;
+     float y = getPos().y;
+     float gx = goodGuy.getPos().x;
+     float gy = goodGuy.getPos().y;
+     boolean xRange = (x>=gx && x<=gx+20) || (x+20>=gx && x+20<=gx+20);
+     boolean yRange = (y>=gy && y<=gy+40) || (y+40>=gy && x+40<=gy+40);
+     //if x is greater than gx and less than gx +20
+    if(xRange && yRange) goodGuy.die();
     }
     
     public void drawBadGuy(){
