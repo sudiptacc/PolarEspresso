@@ -14,6 +14,9 @@ void settings() {
 
 void setup() {
   background(255, 255, 255);
+  
+  LevelReader test = new LevelReader(0, 0);
+  print(test.getFile());
 }
 
 void reset() {

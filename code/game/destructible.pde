@@ -1,4 +1,3 @@
-
 class Destructible extends Obstacle {
   
   private Map map;

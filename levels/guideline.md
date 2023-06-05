@@ -1,4 +1,4 @@
-Naming convention for levels is L[level]O[tier].lvl
+Naming convention for levels is levels/level_[LEVEL]/[TIER].map
 For levels, the numbers denote the following:
 
 0 - Empty
@@ -7,7 +7,7 @@ For levels, the numbers denote the following:
 
 File Outline:
 
-character start pos
+character start pos (if first map)
 LEVEL OUTLINE FOR NEXT 15 LINES
 food placement for next lines
 

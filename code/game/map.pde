@@ -8,11 +8,11 @@ public class Map {
     this.startPos = startPos;
   }
   
-  void Sweet[] getSweets() {
+  Sweet[] getSweets() {
     return sweetLayout;
   }
   
-  void getObstacles() {
+  Obstacle[][] getObstacles() {
     return obstacleLayout;
   }
   

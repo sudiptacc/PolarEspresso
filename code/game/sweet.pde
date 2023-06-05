@@ -8,11 +8,11 @@ class Sweet {
     this.type = type;
   }
   
-  public PVector getPos() {
+  PVector getPos() {
     return pos;
   }
   
-  public String getType() {
+  String getType() {
     return type;
   }
   
