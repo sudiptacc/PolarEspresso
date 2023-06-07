@@ -4,6 +4,7 @@ For levels, the numbers denote the following:
 0 - Empty
 1 - Destructible
 2 - Indestructible
+3 - Enemy
 
 File Outline:
 
