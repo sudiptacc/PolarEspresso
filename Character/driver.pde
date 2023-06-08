@@ -1,8 +1,16 @@
+PImage coffeeFor;
+PImage coffeeBack;
+PImage coffeeLeft;
+PImage coffeeRight;
+
 void setup() {
   size(500, 500);
   frameRate(12);
-  println(width);
-  println(height);
+  coffeeFor = loadImage("characterArt/coffee_forward.png");
+  coffeeBack = loadImage("characterArt/coffee_back.png");
+  coffeeLeft = loadImage("characterArt/coffee_left.png");
+  coffeeRight = loadImage("characterArt/coffee_right.png");
+  
 
 }
   Coffee coffee = new Coffee(0, 0);
@@ -10,7 +18,7 @@ void setup() {
 
 void draw(){
     background(255, 255, 255);
-    coffee.drawCoffee();
+    coffee.drawCoffee(coffeeRight, coffeeLeft, coffeeBack, coffeeFor);
     coffee.move();
     badguy.drawBadGuy();
 

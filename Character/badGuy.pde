@@ -13,8 +13,8 @@ class BadGuy extends Character{
      float y = getPos().y;
      float gx = goodGuy.getPos().x;
      float gy = goodGuy.getPos().y;
-     boolean xRange = (x>=gx && x<=gx+20) || (x+20>=gx && x+20<=gx+20);
-     boolean yRange = (y>=gy && y<=gy+40) || (y+40>=gy && x+40<=gy+40);
+     boolean xRange = (x>=gx && x<=gx+48) || (x+20>=gx && x+20<=gx+48);
+     boolean yRange = (y>=gy && y<=gy+48) || (y+40>=gy && y+40<=gy+48);
      //if x is greater than gx and less than gx +20
     if(xRange && yRange) goodGuy.die();
     }
