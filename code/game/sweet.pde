@@ -8,11 +8,19 @@ class Sweet {
     this.type = type;
   }
   
-  public PVector getPos() {
+  void drawSweet() {
+    fill(99, 70, 53);
+    rect(getPos().y * LevelValues.GRID_SIZE + LevelValues.PADDING,
+           getPos().x * LevelValues.GRID_SIZE + LevelValues.PADDING,
+           LevelValues.GRID_SIZE,
+           LevelValues.GRID_SIZE);
+  }
+  
+  PVector getPos() {
     return pos;
   }
   
-  public String getType() {
+  String getType() {
     return type;
   }
   
