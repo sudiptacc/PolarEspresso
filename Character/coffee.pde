@@ -1,5 +1,5 @@
 class Coffee extends Character{
-
+    PImage COFFEE_FORWARD = loadImage("characterArt/coffee_forward.png");
     public Coffee(){
         super();
     } 
@@ -28,11 +28,12 @@ class Coffee extends Character{
     }
 
     public void drawCoffee(){
-        noStroke();
-        fill(205, 118, 71);
+       // noStroke();
+       // fill(205, 118, 71);
         if(status == true){        
-        rect(getPos().x, getPos().y, 20, 40);
-        fill(0,0,0);
+      //  rect(getPos().x, getPos().y, 20, 40);
+       // fill(0,0,0);
+        image(COFFEE_FORWARD, getPos().x, getPos().y);
         if(dir==0)
         circle(getPos().x+15, getPos().y+10, 5);
         if(dir==1)
