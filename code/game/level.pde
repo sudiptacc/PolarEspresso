@@ -4,8 +4,8 @@ public int sweetsEaten = 0;
 public int timeLeft = 120 * 1000;
 public int timePassed = 0;
 
-private Map[] tiers;
-private int currentTier;
+private ArrayList<Map> maps;
+private int currentTier = 0;
 
 void settings() {
   size(LevelValues.GRID_SIZE * LevelValues.BLOCK_WIDTH + 2 * LevelValues.PADDING,
@@ -13,10 +13,11 @@ void settings() {
 }
 
 void setup() {
+  maps = new ArrayList<Map>();
+  
   background(255, 255, 255);
   
-  LevelReader test = new LevelReader(0, 0);
-  print(test.getFile());
+  maps.add(new Map(0, currentTier));
 }
 
 void reset() {
@@ -25,26 +26,17 @@ void reset() {
 
 void draw() {
   background(255, 255, 255);
-  levelSetup();
-  infoPanelDraw();
-  timeUpdate(millis());
-}
-
-void levelDraw() {
-  background(255, 255, 255);
-  levelSetup();
-  infoPanelDraw();
-  timeUpdate(millis());
-}
-
-void levelSetup() {
   
+  maps.get(currentTier).drawMap();
+  
+  infoPanelDraw();
+  timeUpdate(millis());
 }
 
 /* Complete info panel draw */
 void infoPanelDraw() {
   timePanelDraw();
-  foodPanelDraw();
+  scorePanelDraw();
 }
 
 void timePanelDraw() {
@@ -58,23 +50,25 @@ void timePanelDraw() {
   fill(255, 255, 255);
 }
 
-void foodPanelDraw() {
-  int foodX = LevelValues.PADDING;
-  int foodY = LevelValues.GRID_SIZE * LevelValues.BLOCK_HEIGHT + LevelValues.PADDING + GameInfoPanelValues.FOOD_PANEL_OFFSET;
+void scorePanelDraw() {
+  int scoreX = LevelValues.PADDING;
+  int scoreY = LevelValues.GRID_SIZE * LevelValues.BLOCK_HEIGHT + 2 * LevelValues.PADDING + LevelValues.GRID_SIZE;
   
-  for (int cell = 0; cell < 5; cell++) {
-    rect(foodX + cell * (LevelValues.PADDING + GameInfoPanelValues.FOOD_PANEL_SIZE),
-         foodY,
-         GameInfoPanelValues.FOOD_PANEL_SIZE,
-         GameInfoPanelValues.FOOD_PANEL_SIZE);
-  }
+  fill(0, 0, 0);
+  textAlign(LEFT);
+  textSize(GameInfoPanelValues.TEXT_SIZE);
+  text(score, scoreX, scoreY);
+  fill(255, 255, 255);
 }
+
 
 String formatTime(int timeMs) {
   String time = "";
   
   time += timeMs / (60 * 1000) + ":";
-  time += timeMs / 1000 % 60;
+  int seconds = timeMs / 1000 % 60;
+  if (seconds < 10) time += "0" + seconds;
+  else time += seconds;
   
   return time;
 }

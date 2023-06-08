@@ -5,7 +5,7 @@ class Indestructible extends Obstacle {
   }
   
   public void drawObject() {
-    fill(255, 255, 255);
+    fill(224, 94, 18);
     rect(getPos().y * LevelValues.GRID_SIZE + LevelValues.PADDING,
            getPos().x * LevelValues.GRID_SIZE + LevelValues.PADDING,
            LevelValues.GRID_SIZE,

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class LevelReader {
  
   String file;
@@ -10,9 +12,18 @@ class LevelReader {
   
   
   public LevelReader(int level, int tier) {
-    file = "../../levels/level_" + level + "/" + tier;
+    file = "../../levels/level_" + level + "/" + tier + ".map";
     isFirstMap = tier == 0;
+    
+    obstacleLayout = new ArrayList<ArrayList<Obstacle>>();
+    sweetLayout = new ArrayList<Sweet>();
+    badGuyLayout = new ArrayList<PVector>();
+    
     readMap();
+  }
+  
+  PVector getPlayerStartPos() {
+    return playerPos;
   }
   
   ArrayList<ArrayList<Obstacle>> getObstacles() {
@@ -23,11 +34,11 @@ class LevelReader {
     return sweetLayout;
   }
   
-  String getFile() {
-    return file;
+  ArrayList<PVector> getBadGuys() {
+    return badGuyLayout;
   }
-  
-  void readMap() {
+
+  private void readMap() {
     String[] lines = loadStrings(file);
     
     int start = 0;
@@ -44,7 +55,7 @@ class LevelReader {
       
       for (int column = 0; column < LevelValues.BLOCK_WIDTH; column++) {
         char item = items[column];
-        PVector position = new PVector(column, row);
+        PVector position = new PVector(row, column);
         if (item == '0') {
           obstacleRow.add(new Empty(position));
         } else if (item == '1') {
@@ -53,8 +64,20 @@ class LevelReader {
           obstacleRow.add(new Indestructible(position));
         } else if (item == '3') {
           badGuyLayout.add(position);
+          obstacleRow.add(new Empty(position));
         }
       }
+      obstacleLayout.add(obstacleRow);
+    }
+    
+    for (int lineIndex = start + LevelValues.BLOCK_HEIGHT; lineIndex < lines.length; lineIndex++) {
+      String line = lines[lineIndex];
+      String[] coordinates = line.split(" ");
+      
+      int x = Integer.valueOf(coordinates[0]);
+      int y = Integer.valueOf(coordinates[1]);
+      
+      sweetLayout.add(new Sweet(new PVector(x, y), "CHOCOLATE"));
     }
   }
   
