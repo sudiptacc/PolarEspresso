@@ -31,9 +31,9 @@ class Coffee extends Character{
       status = false;
     }
 
-    public void drawCoffee(PImage right, PImage left, PImage up, PImage down){
-        noStroke();
-        fill(205, 118, 71);
+    public void drawCoffee(PImage right, PImage left, PImage up, PImage down, PImage dead){
+        //noStroke();
+       // fill(205, 118, 71);
         if(status == true){        
        // rect(getPos().x, getPos().y, 20, 40);
        // fill(0,0,0);
@@ -49,7 +49,7 @@ class Coffee extends Character{
  
         }
     else{
-    circle(getPos().x, getPos().y, 20);
+    image(dead, getPos().x, getPos().y);
     }
     }
 
@@ -74,7 +74,7 @@ class Coffee extends Character{
         deltaY =  LevelValues.GRID_SIZE;
         dir = 3;
         }
-        setPos(constrain(getPos().x+deltaX, 0, width-20), constrain(getPos().y+deltaY, 0, height-40));//will change to constants
+        setPos(constrain(getPos().x+deltaX, 0, width-LevelValues.GRID_SIZE), constrain(getPos().y+deltaY, 0, height-LevelValues.GRID_SIZE));//will change to constants
  //       println(getPos().x);
    //     println(getPos().y);
         }  

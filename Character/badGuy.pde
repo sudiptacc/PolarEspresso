@@ -13,22 +13,21 @@ class BadGuy extends Character{
      float y = getPos().y;
      float gx = goodGuy.getPos().x;
      float gy = goodGuy.getPos().y;
-     boolean xRange = (x>=gx && x<=gx+48) || (x+20>=gx && x+20<=gx+48);
-     boolean yRange = (y>=gy && y<=gy+48) || (y+40>=gy && y+40<=gy+48);
+     boolean xRange = (x>=gx && x<=gx+LevelValues.GRID_SIZE) || (x+LevelValues.GRID_SIZE>=gx && x+LevelValues.GRID_SIZE<=gx+LevelValues.GRID_SIZE);
+     boolean yRange = (y>=gy && y<=gy+LevelValues.GRID_SIZE) || (y+LevelValues.GRID_SIZE>=gy && y+LevelValues.GRID_SIZE<=gy+LevelValues.GRID_SIZE);
      //if x is greater than gx and less than gx +20
     if(xRange && yRange) goodGuy.die();
     }
     
-    public void drawBadGuy(){
-    fill(255,0,0);
-    rect(getPos().x, getPos().y, 20, 40);
+    public void drawBadGuy(PImage img){
+    image(img, getPos().x, getPos().y);
     }
     
     public void move(){
       //int deltaX=10;//LevelValues.GRID_SIZE;
-      if(getPos().x == width-20) deltaX = -10;
-      if(getPos().x == 0) deltaX = 10;
-      float finalX = constrain(getPos().x+deltaX,0,width-20);
+      if(getPos().x == width-LevelValues.GRID_SIZE) deltaX = -LevelValues.GRID_SIZE;
+      if(getPos().x == 0) deltaX = LevelValues.GRID_SIZE;
+      float finalX = constrain(getPos().x+deltaX,0,width-LevelValues.GRID_SIZE);
       setPos(finalX, getPos().y);
       println(getPos().x);
       println(deltaX);
