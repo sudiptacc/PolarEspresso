@@ -18,6 +18,14 @@ public class Map {
     this.startPos = startPos;
   }
   
+  PVector getPosition() {
+    return startPos;
+  }
+  
+  ArrayList<PVector> getBadGuys() {
+    return badGuyLayout;
+  }
+  
   ArrayList<Sweet> getSweets() {
     return sweetLayout;
   }
