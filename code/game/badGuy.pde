@@ -25,9 +25,9 @@ class BadGuy extends Character{
     
     public void move(){
       //int deltaX=10;//LevelValues.GRID_SIZE;
-      if(getPos().x == width-(LevelValues.GRID_SIZE+LevelValues.PADDING)) deltaX = -LevelValues.GRID_SIZE;
+      if(getPos().x == width-(2*LevelValues.GRID_SIZE+LevelValues.PADDING)) deltaX = -LevelValues.GRID_SIZE;
       if(getPos().x == LevelValues.GRID_SIZE + LevelValues.PADDING) deltaX = LevelValues.GRID_SIZE;
-      float finalX = constrain(getPos().x+deltaX,LevelValues.GRID_SIZE + LevelValues.PADDING,width-(LevelValues.GRID_SIZE+LevelValues.PADDING));
+      float finalX = constrain(getPos().x+deltaX,LevelValues.GRID_SIZE + LevelValues.PADDING,width-(2*LevelValues.GRID_SIZE+LevelValues.PADDING));
       setPos(finalX, getPos().y);
       println(getPos().x);
       println(deltaX);
