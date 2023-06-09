@@ -1,4 +1,5 @@
 
+
 public int score = 0;
 public int sweetsEaten = 0;
 
@@ -83,7 +84,7 @@ void draw() {
   maps.get(currentTier).drawMap();
   coffee.drawCoffee(coffeeRight, coffeeLeft, coffeeBack, coffeeForward, coffeeDead);
   for (BadGuy enemy : badGuys) {
-    enemy.drawBadGuy(badGuyImage)
+    enemy.drawBadGuy(badGuyImage);
   }
   infoPanelDraw();
   timeUpdate(millis());
