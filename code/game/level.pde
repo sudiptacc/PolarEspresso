@@ -1,3 +1,4 @@
+
 public int score = 0;
 public int sweetsEaten = 0;
 
@@ -63,7 +64,7 @@ void gameLogic() {
     currentTier++;
     reset();
   }
-  
+
   coffee.move();
   
   for (BadGuy enemy : badGuys) {
