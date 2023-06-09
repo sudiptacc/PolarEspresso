@@ -1,4 +1,5 @@
 
+
 public int score = 0;
 public int sweetsEaten = 0;
 
