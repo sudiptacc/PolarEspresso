@@ -27,7 +27,6 @@ class Coffee extends Character{
         boolean sameY = sweet.getPos().y == (int) (getPos().y - LevelValues.PADDING) / LevelValues.GRID_SIZE; 
         
         if (sameX && sameY) {
-          println("yes!");
           sweets.remove(sweet);
           return 1;
         }

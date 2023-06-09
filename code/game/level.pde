@@ -14,6 +14,9 @@ private PImage coffeeBack;
 private PImage coffeeLeft;
 private PImage coffeeRight;
 private PImage coffeeDead;
+private PImage badGuyImage;
+
+private ArrayList<BadGuy> badGuys;
 
 void settings() {
   size(LevelValues.GRID_SIZE * LevelValues.BLOCK_WIDTH + 2 * LevelValues.PADDING,
@@ -35,11 +38,17 @@ void setup() {
   
   coffee = new Coffee(x, y);
   
+  badGuys = new ArrayList<BadGuy>();
+  for (PVector position : maps.get(currentTier).getBadGuys()) {
+    badGuys.add(new BadGuy(position.x, position.y));
+  }
+  
   coffeeForward = loadImage("characterArt/coffee_forward.png");
   coffeeBack = loadImage("characterArt/coffee_back.png");
   coffeeLeft = loadImage("characterArt/coffee_left.png");
   coffeeRight = loadImage("characterArt/coffee_right.png");
   coffeeDead = loadImage("characterArt/coffee_dead.png");
+  badGuyImage = loadImage("characterArt/bad_guy.png");
 }
 
 void reset() {
@@ -49,23 +58,32 @@ void reset() {
 void gameLogic() {
   sweetsEaten += coffee.eatSweet(maps.get(currentTier));
   score = sweetsEaten * 1000;
-}
-
-void physicsUpdate() {
+  
+  if (maps.get(currentTier).getSweets().isEmpty()) {
+    currentTier++;
+    reset();
+  }
+  
   coffee.move();
+  
+  for (BadGuy enemy : badGuys) {
+    enemy.move();
+    enemy.attack(coffee);
+  }
 }
 
 void draw() {
   background(199, 160, 141);
   
+   gameLogic();
+  
   maps.get(currentTier).drawMap();
   coffee.drawCoffee(coffeeRight, coffeeLeft, coffeeBack, coffeeForward, coffeeDead);
+  for (BadGuy enemy : badGuys) {
+    enemy.drawBadGuy(badGuyImage)
+  }
   infoPanelDraw();
   timeUpdate(millis());
-  
-  gameLogic();
-  
-  physicsUpdate();
 }
 
 /* Complete info panel draw */
