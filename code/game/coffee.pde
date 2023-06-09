@@ -59,19 +59,19 @@ class Coffee extends Character{
             float deltaX = 0;/**will change to constant*/
             float deltaY = 0;
         if(keyCode==RIGHT) {
-          deltaX =  LevelValues.GRID_SIZE / 4;
+          deltaX =  LevelValues.GRID_SIZE;
           dir = 0; 
         }
         if(keyCode==LEFT)  {
-        deltaX = -LevelValues.GRID_SIZE / 4;
+        deltaX = -LevelValues.GRID_SIZE;
         dir = 1;
         }
         if(keyCode==UP)    {
-        deltaY = -LevelValues.GRID_SIZE / 4;
+        deltaY = -LevelValues.GRID_SIZE;
         dir = 2;
         }
         if(keyCode==DOWN)  {
-        deltaY =  LevelValues.GRID_SIZE / 4;
+        deltaY =  LevelValues.GRID_SIZE;
         dir = 3;
         }
         setPos(constrain(getPos().x+deltaX, 0, width-LevelValues.GRID_SIZE), constrain(getPos().y+deltaY, 0, height-LevelValues.GRID_SIZE));//will change to constants

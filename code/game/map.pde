@@ -53,9 +53,4 @@ public class Map {
     }
   }
   
-  private void checkCharacter() {
-    
-  }
-
-  
 }

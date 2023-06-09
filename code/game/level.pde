@@ -21,6 +21,8 @@ void settings() {
 }
 
 void setup() {
+  frameRate(15);
+  
   maps = new ArrayList<Map>();
   
   background(199, 160, 141);
@@ -42,6 +44,10 @@ void setup() {
 }
 
 void reset() {
+  
+}
+
+void gameLogic() {
   
 }
 
