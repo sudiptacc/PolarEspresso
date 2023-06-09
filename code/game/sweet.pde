@@ -2,15 +2,18 @@ class Sweet {
  
   private PVector pos;
   private String type;
+  private PImage sweet;
   
   public Sweet(PVector pos, String type) {
     this.pos = pos;
     this.type = type;
+    this.sweet = loadImage("../../art/chocolate_empty.png");
   }
   
   void drawSweet() {
     fill(99, 70, 53);
-    rect(getPos().y * LevelValues.GRID_SIZE + LevelValues.PADDING,
+    image(sweet,
+           getPos().y * LevelValues.GRID_SIZE + LevelValues.PADDING,
            getPos().x * LevelValues.GRID_SIZE + LevelValues.PADDING,
            LevelValues.GRID_SIZE,
            LevelValues.GRID_SIZE);
