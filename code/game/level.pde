@@ -33,7 +33,6 @@ void setup() {
   int x = LevelValues.PADDING + LevelValues.GRID_SIZE * (int) start.x;
   int y = LevelValues.PADDING + LevelValues.GRID_SIZE * (int) start.y;
   
-  print(start);
   coffee = new Coffee(x, y);
   
   coffeeForward = loadImage("characterArt/coffee_forward.png");
@@ -48,7 +47,8 @@ void reset() {
 }
 
 void gameLogic() {
-  
+  sweetsEaten += coffee.eatSweet(maps.get(currentTier));
+  score = sweetsEaten * 1000;
 }
 
 void physicsUpdate() {
@@ -62,6 +62,8 @@ void draw() {
   coffee.drawCoffee(coffeeRight, coffeeLeft, coffeeBack, coffeeForward, coffeeDead);
   infoPanelDraw();
   timeUpdate(millis());
+  
+  gameLogic();
   
   physicsUpdate();
 }
