@@ -1,3 +1,4 @@
+bad guy
 class BadGuy extends Character{
     int deltaX = 10;
     public BadGuy(){
