@@ -66,7 +66,7 @@ void gameLogic() {
   }
 
 
-  coffee.collisions(maps.get(0));
+  coffee.collisions(maps.get(currentTier));
   coffee.move();
   
   for (BadGuy enemy : badGuys) {
