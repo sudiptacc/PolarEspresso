@@ -32,8 +32,8 @@ class Coffee extends Character{
     }
 
     public void drawCoffee(PImage right, PImage left, PImage up, PImage down, PImage dead){
-        //noStroke();
-       // fill(205, 118, 71);
+        noStroke();
+        fill(205, 118, 71);
         if(status == true){        
        // rect(getPos().x, getPos().y, 20, 40);
        // fill(0,0,0);
@@ -49,7 +49,7 @@ class Coffee extends Character{
  
         }
     else{
-    image(dead, getPos().x, getPos().y);
+        image(dead, getPos().x, getPos().y);
     }
     }
 

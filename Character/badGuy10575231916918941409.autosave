@@ -19,8 +19,8 @@ class BadGuy extends Character{
     if(xRange && yRange) goodGuy.die();
     }
     
-    public void drawBadGuy(PImage img){
-    image(img, getPos().x, getPos().y);
+    public void drawBadGuy(PImage badGuy){
+    image(badGuy, getPos().x, getPos().y);
     }
     
     public void move(){
