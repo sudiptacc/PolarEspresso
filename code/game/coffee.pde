@@ -17,11 +17,23 @@ class Coffee extends Character{
     private boolean status;
     int dir;
 
-    public boolean sweetAhead(){
-        return true;
-    }
+    public int eatSweet(Map map){
+      ArrayList<Sweet> sweets = map.getSweets();
+      
+      for (Sweet sweet : sweets) {
 
-    public void eatSweet(){
+        
+        boolean sameX = sweet.getPos().x == (int) (getPos().x - LevelValues.PADDING) / LevelValues.GRID_SIZE; 
+        boolean sameY = sweet.getPos().y == (int) (getPos().y - LevelValues.PADDING) / LevelValues.GRID_SIZE; 
+        
+        if (sameX && sameY) {
+          sweets.remove(sweet);
+          return 1;
+        }
+        
+      }
+      
+      return 0;
     } 
 
     public void makeWhipped(){

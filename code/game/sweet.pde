@@ -13,8 +13,8 @@ class Sweet {
   void drawSweet() {
     fill(99, 70, 53);
     image(sweet,
-           getPos().y * LevelValues.GRID_SIZE + LevelValues.PADDING,
            getPos().x * LevelValues.GRID_SIZE + LevelValues.PADDING,
+           getPos().y * LevelValues.GRID_SIZE + LevelValues.PADDING,
            LevelValues.GRID_SIZE,
            LevelValues.GRID_SIZE);
   }

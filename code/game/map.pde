@@ -52,14 +52,3 @@ public class Map {
       sweet.drawSweet();
     }
   }
-  
-  private void checkCharacter() {
-    
-  }
-  
-  PVector getStartPos(){
-  return startPos;
-  }
-
-  
-}
