@@ -30,7 +30,8 @@ void setup() {
   maps = new ArrayList<Map>();
   
   background(199, 160, 141);
-  maps.add(new Map(0, currentTier));
+  maps.add(new Map(0, 0));
+  maps.add(new Map(0, 1));
   
   PVector start = maps.get(currentTier).getPosition();
   
@@ -54,19 +55,35 @@ void setup() {
   badGuyImage = loadImage("characterArt/bad_guy.png");
 }
 
-void reset() {
+void switchLevel() {
+  if (currentTier == 0) currentTier++;
+  else currentTier = 0;
   
+  int x = (int) LevelValues.PADDING + LevelValues.GRID_SIZE;
+  int y = (int) LevelValues.PADDING + LevelValues.GRID_SIZE;
+  
+  coffee = new Coffee(x, y);
+}
+
+void reset() {
+  score = 0;
+  sweetsEaten = 0;
+  timePassed = 0;
+  
+  setup();
 }
 
 void gameLogic() {
+  if (!coffee.status) {
+    reset();
+  }
+  
   sweetsEaten += coffee.eatSweet(maps.get(currentTier));
   score = sweetsEaten * 1000;
   
   if (maps.get(currentTier).getSweets().isEmpty()) {
-    currentTier++;
-    reset();
+    switchLevel();
   }
-
 
   coffee.collisions(maps.get(currentTier));
   coffee.move();

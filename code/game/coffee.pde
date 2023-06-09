@@ -14,7 +14,7 @@ class Coffee extends Character{
     }
 
     private String flavor;
-    private boolean status;
+    public boolean status;
     int dir;
 
     public int eatSweet(Map map){
