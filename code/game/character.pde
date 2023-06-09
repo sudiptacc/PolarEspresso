@@ -11,7 +11,7 @@ public Character(float x, float y/**, Map mapParam*/){
 //    map = mapParam;
 }
 
-abstract public void move();
+ public void move(){};
 
 /**public boolean blockAhead(){
 }
