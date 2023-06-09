@@ -30,4 +30,5 @@ public PVector getPos(){
 public void setPos(float x, float y){
     pos.set(x, y);   
 }
+
 }
