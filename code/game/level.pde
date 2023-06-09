@@ -6,6 +6,16 @@ public int timePassed = 0;
 
 private ArrayList<Map> maps;
 private int currentTier = 0;
+private Coffee coffee;
+private BadGuy badguy;
+//images
+PImage coffeeFor;
+PImage coffeeBack;
+PImage coffeeLeft;
+PImage coffeeRight;
+PImage coffeeDead;
+PImage badGuy;
+
 
 void settings() {
   size(LevelValues.GRID_SIZE * LevelValues.BLOCK_WIDTH + 2 * LevelValues.PADDING,
@@ -14,10 +24,18 @@ void settings() {
 
 void setup() {
   maps = new ArrayList<Map>();
-  
+
   background(255, 255, 255);
   
   maps.add(new Map(0, currentTier));
+    
+  //retrieving images
+  coffeeFor = loadImage("characterArt/coffee_forward.png");
+  coffeeBack = loadImage("characterArt/coffee_back.png");
+  coffeeLeft = loadImage("characterArt/coffee_left.png");
+  coffeeRight = loadImage("characterArt/coffee_right.png");
+  coffeeDead = loadImage("characterArt/coffee_dead.png");
+  badGuy = loadImage("characterArt/bad_guy.png");
 }
 
 void reset() {
@@ -31,6 +49,8 @@ void draw() {
   
   infoPanelDraw();
   timeUpdate(millis());
+  
+
 }
 
 /* Complete info panel draw */

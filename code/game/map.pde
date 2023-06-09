@@ -48,6 +48,10 @@ public class Map {
   private void checkCharacter() {
     
   }
+  
+  PVector getStartPos(){
+  return startPos;
+  }
 
   
 }
