@@ -15,7 +15,7 @@ void settings() {
 void setup() {
   maps = new ArrayList<Map>();
   
-  background(255, 255, 255);
+  background(199, 160, 141);
   
   maps.add(new Map(0, currentTier));
 }
@@ -25,7 +25,7 @@ void reset() {
 }
 
 void draw() {
-  background(255, 255, 255);
+  background(199, 160, 141);
   
   maps.get(currentTier).drawMap();
   
