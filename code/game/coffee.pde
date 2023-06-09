@@ -59,25 +59,46 @@ class Coffee extends Character{
             float deltaX = 0;/**will change to constant*/
             float deltaY = 0;
         if(keyCode==RIGHT) {
-          deltaX =  LevelValues.GRID_SIZE / 4;
+          deltaX =  LevelValues.GRID_SIZE;
           dir = 0; 
         }
         if(keyCode==LEFT)  {
-        deltaX = -LevelValues.GRID_SIZE / 4;
+        deltaX = -LevelValues.GRID_SIZE;
         dir = 1;
         }
         if(keyCode==UP)    {
-        deltaY = -LevelValues.GRID_SIZE / 4;
+        deltaY = -LevelValues.GRID_SIZE;
         dir = 2;
         }
         if(keyCode==DOWN)  {
-        deltaY =  LevelValues.GRID_SIZE / 4;
+        deltaY =  LevelValues.GRID_SIZE;
         dir = 3;
         }
         setPos(constrain(getPos().x+deltaX, 0, width-LevelValues.GRID_SIZE), constrain(getPos().y+deltaY, 0, height-LevelValues.GRID_SIZE));//will change to constants
  //       println(getPos().x);
    //     println(getPos().y);
-        }  
+      }  
  }
  }
+     public void collisions(Map map){
+      ArrayList<ArrayList<Obstacle>> obstacles = map.getObstacles();
+      //System.out.println(getPos().x); 
+      //System.out.println(getPos().y); 
+      int gridX = (int) (getPos().x - LevelValues.PADDING) / LevelValues.GRID_SIZE;
+      int gridY = (int) (getPos().y - LevelValues.PADDING) / LevelValues.GRID_SIZE;
+      float newX=getPos().x;
+      float newY=getPos().y;
+      System.out.println(gridX);
+      System.out.println(gridY);
+      if(obstacles.get(constrain(gridY,0,14)).get(constrain(gridX,0,14)) instanceof Indestructible||
+         obstacles.get(constrain(gridY,0,14)).get(constrain(gridX,0,14)) instanceof Destructible
+      )
+      {
+      if(dir==0) newX=(int) getPos().x-LevelValues.GRID_SIZE;
+      if(dir==1) newX=(int) getPos().x+LevelValues.GRID_SIZE;
+      if(dir==2) newY=(int) getPos().y+LevelValues.GRID_SIZE;
+      if(dir==3) newY=(int) getPos().y-LevelValues.GRID_SIZE;
+    }
+    setPos(newX+0.0, newY+0.0);
+      }
 }
