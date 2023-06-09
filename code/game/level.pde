@@ -42,7 +42,9 @@ void setup() {
   
   badGuys = new ArrayList<BadGuy>();
   for (PVector position : maps.get(currentTier).getBadGuys()) {
-    badGuys.add(new BadGuy(position.x, position.y));
+    int enemyX = LevelValues.PADDING + LevelValues.GRID_SIZE * (int) position.x;
+    int enemyY = LevelValues.PADDING + LevelValues.GRID_SIZE * (int) position.y;
+    badGuys.add(new BadGuy(enemyX, enemyY));
   }
   
   coffeeForward = loadImage("characterArt/coffee_forward.png");
@@ -67,7 +69,7 @@ void gameLogic() {
   }
 
 
-  coffee.collisions(maps.get(0));
+  coffee.collisions(maps.get(currentTier));
   coffee.move();
   
   for (BadGuy enemy : badGuys) {
